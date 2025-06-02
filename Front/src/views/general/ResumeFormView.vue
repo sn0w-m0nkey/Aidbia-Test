@@ -39,6 +39,14 @@ import OneThirdsLayout from 'components/shared/OneThirdsLayout.vue'
 
 import { defineComponent } from 'vue'
 
+import { useRoute } from 'vue-router'
+import { onMounted, ref } from 'vue'
+import type { Resume } from 'types/Resume'
+import { resumes } from '~@/views/general/data/resumes'
+
+const route = useRoute()
+const resume = ref<Resume | null>(null)
+
 // Todo: implement content for card one and card two
 export default defineComponent({
     components: {
@@ -48,6 +56,12 @@ export default defineComponent({
         PageLayout,
         OneThirdsLayout,
     },
+})
+
+onMounted(() => {
+    const id = Number(route.params.id)
+    resume = resumes.find(r => r.Id === id) || null
+    console.log(resume)
 })
 </script>
 

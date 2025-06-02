@@ -1,3 +1,5 @@
+import ResumeView from "views/general/ResumeView.vue"
+
 /*
  * A constant contain all the section route names in application
  */
@@ -15,6 +17,7 @@ const GeneralViewNames = {
     Introduction: 'Introduction',
     ResumeTable: 'ResumeTable',
     ResumeForm: 'ResumeForm',
+    ResumeView: 'ResumeView',
 } as const
 
 /*

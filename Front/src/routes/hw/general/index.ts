@@ -43,11 +43,24 @@ export const general = {
         {
             path: 'resumeform',
             name: RouteNames.ResumeForm,
-            component: () => import('views/general/ResumeFormView.vue'),
+            component: () => import('views/general/ResumeView.vue'),
             meta: {
                 breadcrumb: [
                     {
                         name: 'Resume Form',
+                        icon: 'fa fa-project-diagram',
+                    },
+                ],
+            },
+        },
+        {
+            path: '/resumeview/:id',
+            name: RouteNames.ResumeView,
+            component: () => import('views/general/ResumeView.vue'),
+            meta: {
+                breadcrumb: [
+                    {
+                        name: 'Resume View',
                         icon: 'fa fa-project-diagram',
                     },
                 ],

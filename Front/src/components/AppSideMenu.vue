@@ -43,10 +43,6 @@
                 :route-name="$routeNames.ResumeTable"
                 use-default-icon
             ></SideMenuItem>
-            <SideMenuItem
-                :route-name="$routeNames.ResumeForm"
-                use-default-icon
-            ></SideMenuItem>
         </SideMenuSection>
     </SideMenuLayout>
 </template>
