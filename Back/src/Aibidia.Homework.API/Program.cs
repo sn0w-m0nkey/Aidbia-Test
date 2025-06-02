@@ -1,13 +1,16 @@
 using Aibidia.Homework.API.Configuration;
+using Aibidia.Homework.API.Services;
 using Aibidia.Homework.Application.Resumes.Mapping;
 using Aibidia.Homework.DataAccess.Configuration;
 using Microsoft.ApplicationInsights.DependencyCollector;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Aibidia.Homework.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
-var services = builder.Services;
+var services = builder.Services
+    .RegisterServices();
 
 services.Configure<KestrelServerOptions>(options =>
 {
