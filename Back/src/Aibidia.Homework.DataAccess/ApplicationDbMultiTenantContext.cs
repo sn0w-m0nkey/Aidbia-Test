@@ -20,7 +20,7 @@ public class ApplicationDbMultiTenantContext : DbContext, IApplicationDbContext
     public DbSet<Education> Educations { get; set; } = null!;
     public DbSet<Skill> Skills { get; set; } = null!;
 
-    public DbSet<ResumeActive> ActiveResumes { get; set; } = null!;
+    public DbSet<ActiveResumeView> ActiveResumes { get; set; } = null!;
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
@@ -35,7 +35,7 @@ public class ApplicationDbMultiTenantContext : DbContext, IApplicationDbContext
         modelBuilder.ApplyConfiguration(new ResumeConfiguration());
         modelBuilder.ApplyConfiguration(new ResumeActiveConfiguration());
 
-        modelBuilder.Entity<ResumeActive>().Metadata.SetIsTableExcludedFromMigrations(true);
+        modelBuilder.Entity<ActiveResumeView>().Metadata.SetIsTableExcludedFromMigrations(true);
 
         modelBuilder.Entity<Resume>()
             .HasMany(r => r.Experiences)
@@ -78,6 +78,17 @@ public class ApplicationDbMultiTenantContext : DbContext, IApplicationDbContext
                 Summary = "Frontend Developer with a passion for UI/UX.",
                 Description = "Open to contract opportunities.",
                 IsActive = true
+                
+            },
+            new
+            {
+                Id = 3,
+                Description = "Open for anything.",
+                Email = "old-cv@old.com",
+                FullName = "Joe Bloggs",
+                IsActive = false,
+                PhoneNumber = "07654 567 098",
+                Summary = "Junior front end dev."
             }
         );
 

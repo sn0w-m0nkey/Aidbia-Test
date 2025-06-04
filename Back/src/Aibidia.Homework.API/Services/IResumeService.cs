@@ -6,4 +6,5 @@ public interface IResumeService
 {
     Task<ResumeDto?> GetResumeAsync(int id);
     Task<List<ResumeDto>> GetAllResumesAsync();
+    Task<List<ActiveResumeViewDto>> GetActiveResumeViews();
 }

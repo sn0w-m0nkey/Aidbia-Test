@@ -138,7 +138,8 @@ namespace Aibidia.Homework.DataAccess.Migrations
                 values: new object[,]
                 {
                     { 1, "Looking for remote backend roles.", "owen@gmail.com", "Owen M", true, "07123 456 789", "Full Stack Developer with 5+ years of experience." },
-                    { 2, "Open to contract opportunities.", "jane.doe@example.com", "Jane Doe", true, "07234 567 890", "Frontend Developer with a passion for UI/UX." }
+                    { 2, "Open to contract opportunities.", "jane.doe@example.com", "Jane Doe", true, "07234 567 890", "Frontend Developer with a passion for UI/UX." },
+                    { 3, "Open for anything.", "old-cv@old.com", "Joe Bloggs", false, "07654 567 098", "Junior front end dev." }
                 });
 
             migrationBuilder.InsertData(

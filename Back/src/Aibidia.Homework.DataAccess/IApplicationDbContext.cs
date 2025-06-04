@@ -13,7 +13,7 @@ public interface IApplicationDbContext
     public DbSet<Education> Educations { get; set; }
     public DbSet<Skill> Skills { get; set; }
 
-    public DbSet<ResumeActive> ActiveResumes { get; set; }
+    public DbSet<ActiveResumeView> ActiveResumes { get; set; }
 
     #endregion
 

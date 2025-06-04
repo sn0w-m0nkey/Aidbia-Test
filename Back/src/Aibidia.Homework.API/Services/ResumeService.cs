@@ -30,5 +30,12 @@ public class ResumeService(IMapper mapper, ApplicationDbMultiTenantContext conte
             .ToListAsync();
 
         return mapper.Map<List<ResumeDto>>(resumes);
+    }   
+    
+    public async Task<List<ActiveResumeViewDto>> GetActiveResumeViews()
+    {
+        var activeResumes = await context.ActiveResumes.ToListAsync();
+
+        return mapper.Map<List<ActiveResumeViewDto>>(activeResumes);
     }
 }

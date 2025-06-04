@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aibidia.Homework.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbMultiTenantContext))]
-    [Migration("20250602140005_CreateDatabaseAndSeedData")]
+    [Migration("20250604195015_CreateDatabaseAndSeedData")]
     partial class CreateDatabaseAndSeedData
     {
         /// <inheritdoc />
@@ -263,6 +263,16 @@ namespace Aibidia.Homework.DataAccess.Migrations
                             IsActive = true,
                             PhoneNumber = "07234 567 890",
                             Summary = "Frontend Developer with a passion for UI/UX."
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Open for anything.",
+                            Email = "old-cv@old.com",
+                            FullName = "Joe Bloggs",
+                            IsActive = false,
+                            PhoneNumber = "07654 567 098",
+                            Summary = "Junior front end dev."
                         });
                 });
 
@@ -326,7 +336,7 @@ namespace Aibidia.Homework.DataAccess.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Aibidia.Homework.Domain.Models.Views.ResumeActive", b =>
+            modelBuilder.Entity("Aibidia.Homework.Domain.Models.Views.ActiveResumeView", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -335,15 +345,44 @@ namespace Aibidia.Homework.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("EducationsJson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExperiencesJson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InterestsJson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SkillsJson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Summary")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ResumeActive", "dbo", t =>
+                    b.ToTable("ActiveResumeView", "dbo", t =>
                         {
                             t.ExcludeFromMigrations();
                         });

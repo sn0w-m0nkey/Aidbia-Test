@@ -5,15 +5,15 @@
 namespace Aibidia.Homework.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateResumeView : Migration
+    public partial class AddActiveResumesView : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql(@"
-                CREATE VIEW ResumeView AS
+                CREATE VIEW ActiveResumeView AS
                 SELECT
-                    r.Id AS ResumeId,
+                    r.Id AS Id,
                     r.FullName,
                     r.Email,
                     r.PhoneNumber,
@@ -50,14 +50,14 @@ namespace Aibidia.Homework.DataAccess.Migrations
                         FOR JSON PATH
                     ) AS InterestsJson
 
-                FROM Resume r;
+                FROM Resume r
+                WHERE IsActive = 1;
             ");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("DROP VIEW ResumeActive");
+            migrationBuilder.Sql("DROP VIEW ActiveResumeView");
         }
     }
 }

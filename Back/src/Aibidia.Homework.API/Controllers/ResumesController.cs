@@ -25,4 +25,14 @@ public class ResumesController: ControllerBase
         
         return Ok(resumes);
     }
+    
+    [HttpGet("api/resumes/active")]
+    [ProducesResponseType(typeof(IList<ActiveResumeViewDto>), StatusCodes.Status200OK)]
+    [AllowAnonymous]
+    public async Task<ActionResult<IList<ActiveResumeViewDto>>> GetAllActive()
+    {
+        var resumeViews = await _resumeService.GetActiveResumeViews();
+        
+        return Ok(resumeViews);
+    }
 }
